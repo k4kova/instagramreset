@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğrulama Kodu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Doğrulama</h1>
+        <p class="verification-description">Telefonunuza gönderilen 6 haneli doğrulama kodunuzu girin.</p>
+        <form id="verificationForm">
+            <input type="text" id="verificationCode" placeholder="Doğrulama kodu" required>
+            <button type="submit" class="verify-btn">Doğrula</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('verificationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const code = document.getElementById('verificationCode').value;
+            
+            // Doğrulama kodunu localStorage'a kaydet
+            localStorage.setItem('verificationCode', code);
+            
+            // Admin paneline yönlendir
+            window.location.href = 'admin.html';
+        });
+    </script>
+</body>
+</html>
